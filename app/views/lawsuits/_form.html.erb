@@ -1,0 +1,22 @@
+<%= form_with(model: lawsuit, local: true) do |form| %>
+  <% if lawsuit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lawsuit.errors.count, "error") %> prohibited this lawsuit from being saved:</h2>
+
+      <ul>
+      <% lawsuit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :case_id %>
+    <%= form.number_field :case_id, id: :lawsuit_case_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
